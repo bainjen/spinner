@@ -1,16 +1,24 @@
-const spinnerElems = ['\r|   ', '\r/   ', '\r-   ', '\r\\   ', '\r|   ', '\r/   ', '\r-   ', '\r\\   ']
+const spinnerElems = ['\r|   ', '\r/   ', '\r-   ', '\r\\   ']
 let delay = 0; 
 
-const spinner = (array) => {
+const spinner = (array, delayAmount) => {
   for (const elem of array) {
     setTimeout(() => {
       process.stdout.write(elem)
     }, delay);
-    delay += 200;
+    delay += delayAmount;
   };
 };
 
-spinner(spinnerElems); 
+// spinner(spinnerElems); 
+
+const loopSpinner = (numOfSpins) => {
+  for (let i = 0; i < numOfSpins; i++) {
+    spinner(spinnerElems, 100);
+  }
+};
+
+loopSpinner(5);
 
 
 
